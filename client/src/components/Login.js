@@ -8,35 +8,49 @@ import {
   InputLabel,
   Input,
   InputAdornment,
+  colors,
 } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import KeyIcon from "@mui/icons-material/Key";
 function Login() {
   return (
     <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      minHeight="100vh"
-      ml={2}
-      mr={2}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "50vh",
+        backgroundColor: "#1C538E",
+        margin: "0 5rem",
+        color: "white",
+        borderRadius: "5px",
+      }}
     >
-      <Grid
-        container
-        align="center"
-        justifyContent="center"
-        style={{ backgroundColor: "grey" }}
-      >
-        <h2>Login Form</h2>
-        <Grid container item align="center" justifyContent="center" spacing={5}>
+      <Grid container align="center" justifyContent="center" spacing={4}>
+        <h2>Login</h2>
+        <Grid container item spacing={4}>
           <Grid item xs={12}>
             <FormControl>
-              <InputLabel htmlFor="username">Enter Username</InputLabel>
+              <InputLabel
+                htmlFor="username"
+                sx={{
+                  color: "white",
+                }}
+              >
+                Enter Username
+              </InputLabel>
               <Input
                 id="username"
+                sx={{
+                  color: "white",
+                }}
                 startAdornment={
                   <InputAdornment position="start">
-                    <AccountCircle />
+                    <AccountCircle
+                      sx={{
+                        color: "white",
+                      }}
+                    />
                   </InputAdornment>
                 }
               />
@@ -44,12 +58,27 @@ function Login() {
           </Grid>
           <Grid item xs={12}>
             <FormControl>
-              <InputLabel htmlFor="password">Enter Password</InputLabel>
+              <InputLabel
+                htmlFor="password"
+                sx={{
+                  color: "white",
+                }}
+              >
+                Enter Password
+              </InputLabel>
               <Input
                 id="password"
+                type="password"
+                sx={{
+                  color: "white",
+                }}
                 startAdornment={
                   <InputAdornment position="start">
-                    <KeyIcon />
+                    <KeyIcon
+                      sx={{
+                        color: "white",
+                      }}
+                    />
                   </InputAdornment>
                 }
               />
@@ -57,7 +86,7 @@ function Login() {
           </Grid>
         </Grid>
         <Grid item>
-          <Button variant="contained" type="submit">
+          <Button fullWidth variant="contained" type="submit" >
             Submit
           </Button>
         </Grid>
