@@ -6,8 +6,8 @@ function Home({handleLogout}) {
     }
     return (
         <div>
-            <Button onClick={handleClickLogout}>
-                logout
+            <Button variant="contained" color="secondary" onClick={handleClickLogout}>
+                Logout
             </Button>
         </div>
     )
