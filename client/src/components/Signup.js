@@ -9,11 +9,16 @@ import {
   InputAdornment,
   Typography,
 } from "@mui/material";
+import { useNavigate } from "react-router";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import KeyIcon from "@mui/icons-material/Key";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
-import MailIcon from '@mui/icons-material/Mail';
+import MailIcon from "@mui/icons-material/Mail";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Link } from "react-router-dom";
 function Signup({ handleCreateAccount }) {
+  const navigate = useNavigate();
+
   const [data, setDataChange] = useState({
     username: "",
     password: "",
@@ -36,7 +41,7 @@ function Signup({ handleCreateAccount }) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "50vh",
+        minHeight: "60vh",
         backgroundColor: "#1C538E",
         color: "white",
         borderRadius: "5px",
@@ -44,8 +49,38 @@ function Signup({ handleCreateAccount }) {
         margin: "0 auto",
       }}
     >
-      <Grid container align="center" justifyContent="center" spacing={4}>
-        <Typography variant="h2">Signup</Typography>
+      <Grid
+        container
+        align="center"
+        justifyContent="center"
+        alignItems="center"
+        spacing={4}
+      >
+        <Grid item xs={11}>
+          <Link to="/">
+            <Typography
+              variant="h6"
+              sx={{
+                color: "white",
+                "&:hover": {
+                  backgroundColor: "primary.main",
+                },
+                border: "1px dashed grey",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                
+              }}
+            >
+              Go back
+            </Typography>
+          </Link>
+        </Grid>
+        <Grid item>
+          <Typography variant="h2" xs={2}>
+            Signup
+          </Typography>
+        </Grid>
         <Grid container item spacing={4}>
           <Grid item xs={12}>
             <FormControl>

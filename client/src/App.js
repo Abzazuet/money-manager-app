@@ -87,11 +87,12 @@ function App() {
         sx={{
           color: "white",
           minHeight: "10vh",
-          margin: "auto auto auto 10px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          textAlign: "center",
+          margin: "1rem 0"
         }}
       >
         Money Manager Application
