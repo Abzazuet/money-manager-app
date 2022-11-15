@@ -1,9 +1,14 @@
 import React from "react";
-
-function Home() {
+import { Button } from "@mui/material";
+function Home({handleLogout}) {
+    function handleClickLogout(){
+        handleLogout();
+    }
     return (
         <div>
-            
+            <Button onClick={handleClickLogout}>
+                logout
+            </Button>
         </div>
     )
 }

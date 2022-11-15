@@ -7,7 +7,7 @@ import Home from "./components/Home";
 import { createTheme, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {useEffect} from "react"
+import { useEffect } from "react";
 function App() {
   const theme = createTheme({
     palette: {
@@ -56,6 +56,14 @@ function App() {
       }
     });
   }
+  function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => {
+      dispatch({ type: "user/logout", user: {} });
+      navigate("/");
+    });
+  }
   function handleCreateAccount(data) {
     fetch("/signup", {
       method: "POST",
@@ -90,12 +98,19 @@ function App() {
         Money Manager Application
       </Typography>
       <Routes>
-        <Route exact path="/" element={<Login handleLogin={handleLogin} />}></Route>
+        <Route
+          exact
+          path="/"
+          element={<Login handleLogin={handleLogin} />}
+        ></Route>
         <Route
           path="/signup"
           element={<Signup handleCreateAccount={handleCreateAccount} />}
         ></Route>
-        <Route path="/home" element={<Home />}></Route>
+        <Route
+          path="/home"
+          element={<Home handleLogout={handleLogout} />}
+        ></Route>
       </Routes>
     </ThemeProvider>
   );

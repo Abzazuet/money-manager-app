@@ -11,13 +11,14 @@ import {
 } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import KeyIcon from "@mui/icons-material/Key";
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import { Link } from "react-router-dom";
+import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import MailIcon from '@mui/icons-material/Mail';
 function Signup({ handleCreateAccount }) {
   const [data, setDataChange] = useState({
     username: "",
     password: "",
     name: "",
+    email: "",
   });
   function handleChange(e) {
     setDataChange({
@@ -27,7 +28,7 @@ function Signup({ handleCreateAccount }) {
   }
   function handleSubmit() {
     handleCreateAccount(data);
-    console.log('a')
+    console.log("a");
   }
   return (
     <Box
@@ -123,6 +124,35 @@ function Signup({ handleCreateAccount }) {
                 startAdornment={
                   <InputAdornment position="start">
                     <DriveFileRenameOutlineIcon
+                      sx={{
+                        color: "white",
+                      }}
+                    />
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={12}>
+            <FormControl>
+              <InputLabel
+                htmlFor="email"
+                sx={{
+                  color: "white",
+                }}
+              >
+                Enter Email
+              </InputLabel>
+              <Input
+                id="email"
+                type="mail"
+                sx={{
+                  color: "white",
+                }}
+                onChange={handleChange}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <MailIcon
                       sx={{
                         color: "white",
                       }}
