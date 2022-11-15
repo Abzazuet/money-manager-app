@@ -12,16 +12,19 @@ import {
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import KeyIcon from "@mui/icons-material/Key";
 import { Link } from "react-router-dom";
-function Login({onSubmit, onCreateAccount}) {
+function Login({ handleLogin }) {
   const [data, setDataChange] = useState({
     username: "",
     password: "",
-  })
-  function handleSubmit(){
-    onSubmit();
+  });
+  function handleSubmit(event) {
+    handleLogin(event, data);
   }
-  function handleCreateAccount(){
-    onCreateAccount();
+  function handleChange(e) {
+    setDataChange({
+      ...data,
+      [e.target.id]: e.target.value,
+    });
   }
   return (
     <Box
@@ -55,6 +58,7 @@ function Login({onSubmit, onCreateAccount}) {
                 sx={{
                   color: "white",
                 }}
+                onChange={handleChange}
                 startAdornment={
                   <InputAdornment position="start">
                     <AccountCircle
@@ -83,6 +87,7 @@ function Login({onSubmit, onCreateAccount}) {
                 sx={{
                   color: "white",
                 }}
+                onChange={handleChange}
                 startAdornment={
                   <InputAdornment position="start">
                     <KeyIcon
@@ -97,17 +102,27 @@ function Login({onSubmit, onCreateAccount}) {
           </Grid>
         </Grid>
         <Grid item xs={10}>
-          <Button fullWidth variant="contained" type="submit" onClick={onSubmit}>
+          <Button
+            fullWidth
+            variant="contained"
+            type="submit"
+            onClick={handleSubmit}
+          >
             Submit
           </Button>
         </Grid>
         <Grid item xs={11}>
-          <Link onClick={onCreateAccount}>
-            <Typography variant="h6" sx={{color: "white", '&:hover': {
-              backgroundColor: "primary.main",
-            },
-            border: '1px dashed grey',
-            }}>
+          <Link to="signup">
+            <Typography
+              variant="h6"
+              sx={{
+                color: "white",
+                "&:hover": {
+                  backgroundColor: "primary.main",
+                },
+                border: "1px dashed grey",
+              }}
+            >
               Create an account
             </Typography>
           </Link>
