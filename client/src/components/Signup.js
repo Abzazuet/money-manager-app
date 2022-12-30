@@ -14,7 +14,6 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import KeyIcon from "@mui/icons-material/Key";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import MailIcon from "@mui/icons-material/Mail";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Link } from "react-router-dom";
 function Signup({ handleCreateAccount }) {
   const navigate = useNavigate();
@@ -69,7 +68,6 @@ function Signup({ handleCreateAccount }) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                
               }}
             >
               Go back
